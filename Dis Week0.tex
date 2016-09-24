@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{setspace}
+\begin{document}
+\doublespacing
+{\center Math 115AH \\ Geoffrey Iyer \\ Office: MS6160 \\ Email: geoff.iyer@gmail.com} \\
+\section{Materials}
+Sets: A set is a collection of elements (no formal definition)\\
+Let's say S is a set, we write $x \in S$ \\
+$N = \{1, 2, 3, 4, ...\}$ called natural numbers, $Z = \{..., -2, -1, 0, 1, 2, ...\}$ called integers\\
+$Q = \{\frac{a}{b} \,|\, a, b \in Z \, and \, b \neq 0\}$ \\
+$\phi$ = Empty Set \\
+Mat\textsubscript{$m\times n$}(R) = $m \times n$ matrices with entries in R\\ 
+R[x] = Polynomials with coefficients in R \\
+Subsets: say A, B are two sets, we say A is a subset of B and write A $\subseteq$ B to mean: \\
+\centerline{If x $\in$ A then x $\in$ B} \\
+Equality: say A, B are sets, we say A = B to mean: \\
+\centerline{x $\in$ A if and only if x $\in$ B}\\
+ Another way to say this: A $\subseteq$ B and B $\subseteq$ A\\
+ Union, Intersection and Complement: \\
+ Here A, B are both sets\\
+ A $\cup$ B = "A union B" = set of elements that are in A or B\\
+ A $\cap$ B = "A intersect B" = set of elements in both A and B\\
+ A $\setminus$ B = "A complement B" = set of elements in A and not in B\\
+ \\
+ Quantifiers: \\
+ $\forall$ means "for all"\\
+ eg. $\forall x \in N$, $x > 0$\\
+ $\exists$ means "there exists"\\
+ eg. $\exists I \in Mat_{2\times 2}(R)$ such that $I \cdot A = A$ for every $A \in Mat_{2\times 2}(R)$
+ 
+ \section{Practice}
+ (1) Prove that $A \cup (B \cap C) = (A\cup B) \cap (A\cup C)$ \\
+ Sol: \\
+ First we'll show $A \cup (B \cap C) \subseteq (A\cup B) \cap (A\cup C)$\\
+ Say $x \in A \cup (B \cap C)$, this means $x \in A$ or $x \in B \cap C$\\
+ Case 1: If $x \in A$, then $x \in A \cup B$ and  $x \in A \cup C$\\
+ then $x \in (A\cup B) \cap (A\cup C)$\\
+ Case 2: If $x \in B \cap C$, then $x \in B$ and $x\in C$\\
+ So $x \in A \cup B$ and $x \in A \cup C$
+ So $A \cup (B \cap C) \subseteq (A\cup B) \cap (A\cup C)$\\
+ Now we need to show $(A\cup B) \cap (A\cup C) \subseteq A \cup (B \cap C)$\\
+ Pick $y \in (A\cup B) \cap (A\cup C)$, then $y \in A \cup B$ and $y \in A \cup C$\\
+ Since $y \in A \cup B$, $y \in A$ or $y \in B$, if $y \in A$ we win\\
+ So say $y \in B$, similarly $y \in A \cup C$, if $y \in A$ we win\\
+ So say $y \in C$, then $y \in B\cup C$\\
+ So we win\\
+ \\
+ (2) Prove that there are sets A, B, C so that $(A\cup B)\cap C \neq A\cup (B\cap C)$\\
+ For example, A = \{1\}, B = $\phi$ and C = $\phi$\\
+ Then $(A\cup B)\cap C = \phi$ and $A\cup (B\cap C)= \{1\}$\\
+\end{document}

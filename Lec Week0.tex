@@ -1,0 +1,65 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{setspace}
+
+\iffalse
+\[
+\begin{bmatrix}
+\end{bmatrix}
+\]
+\fi
+
+\begin{document}
+\doublespacing
+\section{Fields}
+what properties do the REAL numbers have?\\
+algebracally: \\
+$\exists$ two functions (maps): \\
++: $R \times R \mapsto R$ (addition) \\
+$R \times R \mapsto R$ (multiplication)\\
+XXXX axioms:\\
+Def: let F be a , then F is a field under maps:\\
+addition: with $a+b:=+(a, b)$\\
+multiplication: with $ab:=\cdot (a, b)$\\
+satisfying all of the following:\\
+$\forall a, b, c \in F$:\\
+A1: (a+b)+c = a+(b+c) (ASSOCIATIVITY)\\
+A2: $\exists$ an element $0 \in F$ such that $a+0=a=0+a$ (EXISTENCE OF ZERO)\\
+A3: A2 hold and $\forall x \in F, \exists y\in F$ such that $x+y=0=y+x$ (EXISTENCE OF ADD)\\
+A4: $x+y=y+x$ (COMMUTATIVITY)\\
+M1: $a(bc)=(ab)c$\\
+M2: $\exists 1\in F$ such that $1\neq 0$ and $a\cdot 1 = a = 1\cdot a$\\
+M3: M2 hold, $\forall \alpha \neq x \in F \exists y \in F$ such that $xy=1=yx$\\
+M4: $ab=ba$\\
+D1: $a(b+c)=ab+ac$\\
+D2: $(a+b)c=ac+bc$\\
+comments: let F be a field, a, b, c $\in$ F, then the followings are true\\
+\begin{itemize}
+\singlespacing
+	\item $F \neq \phi$ and in fact at least there are 0, 1
+	\item 0, 1 are unique
+	\item If $a+b=0$, then b is unique written -a
+	\item If $a+b=0=a+c$, then $b=b+0=b+(a+c)=(b+a)+c=(a+b)+c=0+c=c$
+	\item If $a+b=a+c$, then $b=c$
+	\item If $a \neq 0$ and $ab=1$, then b is unique written $a^{-1}$
+	\item $0\cdot a=0$ TO BE FILLED
+	\item If $a\cdot b=0$, then $a=0$ or $b=0$
+	\item If $ab=ac$, $a\neq 0$, then $b=c$
+	\item $(-a)(-b)=ab$
+	\item $-(-a)=a$
+	\item If $a\neq 0$, $a^{-1}\neq 0$, then $(a^{-1})^{-1}=a$
+\end{itemize}
+
+\section{example}
+2. Z is not a field\\
+
+3. F = \{0, 1\}\\
+
+4. $\exists$ fields with n elements with n = \{2, 3, 4, 5, 7, 8, 9, 11, 13, 16\}\\
+
+5. Let F be a field \\
+let F[t] := \{polynomials in inderterminant t\}:\\
+$(a_0+a_1t+...+a_nt^n)+(b_0+b_1t+...+b_nt^n) = a_0b_0+(a_0b_1+a_1b_0)t+...$
+
+6. Let F be a field such that $F(t) := \left\{\frac{f}{g}| f,q\in F[t], q\neq 0\right\}$
+\end{document}
