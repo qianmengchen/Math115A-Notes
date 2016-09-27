@@ -1,0 +1,67 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\begin{document}
+\doublespacing
+\section{Functions}
+
+Notation: $f: A\rightarrow B$ means $f$ is a function that inputs elements from the set $A$, and outputs elements from the set $B$.\\
+ie. for each $a\in A$, there is some $f(a)\in B$\\
+$A$ is called the domain\\
+$B$ is called the codomain\\
+e.g.: $f: \mathbb{R} \rightarrow \mathbb{R}$ defined by $f(x)=0$\\
+non-examples:\\
+$f: \mathbb{C}\rightarrow\mathbb{C}$ defined by $f(z)=\sqrt{z}$\\
+we say $f$ is not well-defined since for each $z$ there are two choices for $\sqrt{{z}}$\\
+$f: \mathbb{Q}\rightarrow\mathbb{R}$ defined by $f(\frac{a}{b})=a$\\
+This is bad because $f(\frac{1}{2})=1$ but $f(\frac{2}{4})=2$\\
+
+Definition: say $f: A\rightarrow B$, f is called injective (one to one) when if $f(a)=f(b)$ then $a=b$\\
+i.e.: for each $y\in B$, there is at most one $x\in A$ so that $f(x)=y$\\
+i.e.: if $a\neq b$, then $f(a)\neq f(b)$\\
+e.g: $f(x)=x^3$\\
+e.g.: $g: \mathbb{R}\rightarrow\mathbb{R}[x]$ defined by $g(c)=cx+c$\\
+This is injective because if $g(c_1)=g(c_2)$, then $c_1x+c_1=c_2x+c_2$ so $c_1=c_2$\\
+e.g.: $f(x)=x^2$ is not injective\\
+
+Definition: say $f: A\rightarrow B$, $f$ is surgective when for each $b\in B$, there is some $a\in A$ so that $f(a)=b$.\\
+i.e.: for each $t\in B$, there is at least one $a\in A$ so that $f(a)=b$\\
+e.g.: $f: \mathbb{R}\rightarrow\mathbb{R}$, $f(x)=x^2$ is not surgective because there is no $x\in \mathbb{R}$ so that $f(x)=-1$\\
+e.g.: $g: \mathbb{R}\rightarrow\mathbb{R}$ defined by $g(x)=x^3$ is surgective, because for each $y\in\mathbb{R}$, $g(\sqrt[3]{y})=y$\\
+
+Definition: say $f:A\rightarrow B$, f is called bijective when $f$ is both injective and surgective $\leftarrow$ good for proofs\\
+i.e.: For each $y\in B$, there is exactly one $x\in A$ so that $f(x)=y$\\
+e.g.: $g: \mathbb{R}\rightarrow\mathbb{R}$ defined by $g(x)=x^3$ is bijective.\\
+e.g.: Have $A$ be any set, and define $\mathit{id}_A: A\rightarrow A$, $\mathit{id}_A(x)=x$, no matter what A we pick, this is bijective.\\
+(so if $A=\mathbb{R}$, then $\mathit{id}_A$ is line $y=x$)\\
+Proof: \\
+Let's show $\mathit{id}_A$ is injective\\
+suppose $\mathit{id}_A(x)=\mathit{id}_A(y)$, want $x=y$.\\
+$x=y$, done\\
+Next show $\mathit{id}_A$ is surjective\\
+pick $y\in A$ we want to find $x\in A$ so that $\mathit{id}_A(x)=y$\\
+Well $\mathit{id}_A(y)=y$, so we win.\\
+
+Definition: Suppose $f: A\rightarrow B$, and $g: B\rightarrow C$, then $g\circ f: A\rightarrow C$ is called the composition of $f$ and $g$, defined by $(g\circ f)(x) = g(f(x))$\\
+e.g.: $f: \mathbb{R}\rightarrow\mathbb{R}$, $f(x)=x^2$\\
+$g: \mathbb{R}\rightarrow\mathbb{R}$, $g(x)=cos(x)$\\
+$(g\circ f)(x) = \cos(x^2)$ and $(f\circ g)(x) = \cos^2(x)$\\
+
+\section{Inverse}
+Suppose $f: A\rightarrow B$, we say $f$ is left-invertible if $\exists g: B\rightarrow A$ such that $(g\circ f)(x) = \mathit{id}_A$ and right-invertible if $(f\circ g)(x) = \mathit{id}_B$.\\
+f is invertible if both left and right invertible.\\
+Fact: \\
+any left-inverse or right-inverse is actually a two-sided inverse.\\
+$f$ is injective $\leftrightarrow$ $f$ is left-invertible\\
+$f$ is surjective $\leftrightarrow$ $f$ is right-invertible\\
+$f$ is bijective $\leftrightarrow$ $f$ is invertible\\
+Proof (only for \#3):\\
+First assume $f$ bijective, will prove f is invertible.\\
+Since $f$ is bijective, for each $b\in B$, there is exactly one $a\in A$ such that $f(a)=b$\\
+Define: $g: B\rightarrow A$ by $g(b)=$ that one $a\in A$ such that $f(a)=b$\\
+Look: $f(g(b))=b$ so $f\circ g = \mathit{id}_B$\\
+To be continued...
+\end{document}
