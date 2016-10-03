@@ -1,14 +1,111 @@
 \documentclass[11pt]{article}
 \usepackage{setspace}
 \usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
 
 \begin{document}
-	Missing the first part\\
-	Let $MnF = \{n\times n\}$\\
-	$A,B \in Mn F$, $A_{ij}=ijˆ{th}entry of A$\\
+\doublespacing
+\section{Fields}
+	$F$ is a field.\\
+	$F\in F[t]$ inclusion as constant polys.\\
+	The 1 and 0 of $F$, $F[t]$ are the same.\\
+	$1F=1Ft^0+0t^1+0t^2+\cdots$\\
+	$0=0+0t^1+\cdots$\\
+	cf:RCC same 0\&1\\%段奕成看RCC这句
+	
+	
+	Let $MnF := \{n\times n$ square matrices entries in $F\}$\\
+	$A,B \in Mn F$, $A_{ij}=ij$\textsuperscript{th} entry of $A$\\
 	then $A=B$ iff $A_{ij}=B_{ij}\,\,\forallˆ{i}_{j}$\\
 	Define:\\
-	+ on $MnF$ by $(A+B)_{ij} = A_{ij}+B_{ij}$\\
-	$\cdot$ on $MnF$ by $(AB)_{ij}=\sum\limits_{k=1}ˆ{n}A_{ik}B_{kj}$\\
+	$+$ on $MnF$ by $(A+B)_{ij} = A_{ij}+B_{ij}$\\
+	$\bullet$ on $MnF$ by $(AB)_{ij}=
+	\sum\limits_{k=1}^n A_{ik}B_{kj}$\\
+	then $MnF$ satisfies all the axioms except:\\
+	(*)(M4), (M3) [\&(M3')] (in general)\\%这是啥？？
+	$n=1$, $M_1F$ is essentially $F$\\
+	$n>1$, (*) holds\\
 	
+\[
+\makebox[\displaywidth][l]{$
+0=
+\begin{bmatrix}
+0 & \cdots & 0\\
+\vdots & \ddots & \vdots\\
+0 & \cdots & 0
+\end{bmatrix}, 
+1=I=
+\begin{bmatrix}
+1 & \cdots & 0\\
+\vdots & \ddots & \vdots\\
+0 & \cdots & 1
+\end{bmatrix}
+$}
+\]
+\section{Vector Spaces}
+$\mathbb{R}^2=\mathbb{R}\times \mathbb{R}=\{(a,b)|a,b\in \mathbb{R}\}$\\
+coordinate addition \& scalar multiplication\\
+Define: let $F$ be a field and $V$ a set, we call $V$ a \textbf{vector space over $F$}, write: \\
+$V$ a VS/F under \\
+$+$: $V\times V\rightarrow V$ (addition)\\
+write $v+w:=+(v,w)$\\
+$\bullet$: $F\times V\rightarrow V$(scalar multiplication)\\
+write $\alpha v:=\bullet(\alpha, v)$\\
+if the following axioms hold, $\forall v, w, z\in V$, $\forall \alpha, \beta\in F$\\
+\begin{itemize}
+	\item $(v+w)+z=v+(w+z)$
+	\item $\exists 0\in V$, s.t. $v+0=v=0+v$
+	\item (2) holds and $v+(-1)\cdot v=0$
+	\item $v+w=w+v$
+	\item $\alpha\cdot(\beta\cdot v)=(\alpha\cdot\beta)\cdot v$
+	\item $a\cdot v=v$
+	\item $(\alpha+\beta)v=\alpha v+\beta v$
+	\item $\alpha(v+w)=\alpha v+\alpha w$
+\end{itemize}
+Comments: $\forall a$ VS/F\\
+\begin{itemize}
+	\item The zero of $F$ is unique, write $0_F$ or $0$. The zero of $V$ is unique, write $0_V$ or $0$. But almost always different.
+	\item If $v,w\in V$, $\alpha\in F$, $\alpha v+w\in V$. But $vw$ \& $v\alpha$ does not make sense.
+	\item Will write vectors using roman letters. Scalars, greek. Exception: $(x_1,\ldots, x_n)\in\mathbb{R}^n$.
+	\item $+$: $V\times V\rightarrow V$ says, if $v, w\in V$, then $v+w\in V$. We say $V$ is \textbf{closed} under $+$. Similarly, $\alpha\in F, v\in V\rightarrow \alpha v\in V$, we say $V$ is closed under scalar multiplications.
+\end{itemize}
+\section{Examples}
+$F$ is a field\\
+0.F \\%求段补充这条，没太懂
+\begin{enumerate}
+	\item $F^n = \{(\alpha_1,\ldots,\alpha_n)|\alpha_i\in F, \forall i\}$\\under \textbf{component wise operations} i.e. addition or scalar multiplication, is in VS/F
+	\item let $I\subset \mathbb{R}$ be a subset, e.g. open on closed, internal. Then\\
+	$Fcn(I):=\{f:I\rightarrow\mathbb{R}|fcn\}$\\
+	set of \textbf{Real valued Functions} on I.\\ 
+	Define $\forall f, g\in Fcn(I)$, $\forall\alpha\in R$.\\
+	$+$:=$f+g$ by $(f+g)(x):=f(x)+g(x), \forall x\in I$\\
+	$\bullet$: $\alpha f$ by $(\alpha f)(x):=\alpha(f(x))$\\
+	0 is $0\cdot x=0$, $\forall x\in I$ is a VS/R.
+	\item $C(I)=\{f\in Fcn(I)|f continuous on I\}$
+	\item $Diff(I)=\{f\in Fcn(I)|f is diff on I\}$
+	\item $C^n(I)=\{f\in Fcn(I)|$ the n\textsuperscript{th} derivative f\textsuperscript{(n)} exists and is on $I\}$
+	\item $C^\infty(I):=\{f\in Fcn(I)|$ {fc}\textsuperscript{(n)} exists on $I$, $\forall n\}$
+	\item $C^w(I):=\{f\in Fcn(I)|$ f converges to its Taylor series in I in its neighborhood of each pt in I$\}$
+	\item $Int(I):=\{f\in Fcn(I)|$ f integrable on I$\}$
+	\item F[t] is a VS/F
+	%这一块不知道是什么
+	\item let $n\geq 0$ in $\mathbb{Z}$\\
+	let $F[t]=\{f\in F(I)|$ degree of $f\leq n\}$\\
+	DEGREE of f in $f(I)=1$, s.t. coefficient of $t^n\neq 0$. %这后面就迷失了
+	\item let $F^{m\times n}=\{m\times n$ matrices entries in F$\}$\\
+	$A=B$ iff $A_{ij}=B{ij} \forall i,j$\\
+	with $(A+B)_{ij}=A_{ij}+B{ij}$\\
+	$(\alpha A)_{ij}=\alpha A_{ij}$
+	\item let V be a VS/F, $X\neq\phi$ a set\\
+	let $W:=\{f:X\rightarrow V|f a fcn\}$\\
+	Define: $\forall f,g\in X, \alpha \in F$\\
+	$(f+g)(x):=f(x)+g(x)$\\
+	$(\alpha f)(x):=\alpha f(x)$\\
+	$0(x)=0_V, \forall x \in X$ is a VS/F
+	\item let $F\subset K$ be fields $+, \bullet$ from $K$, came 0\&1. (e.g. RCC)\\
+	Then $K$ is a VS/F by + on $K$\\
+	And Restriction of $\bullet$ on $K$
+	%这是啥？？
+\end{enumerate}
 \end{document}
