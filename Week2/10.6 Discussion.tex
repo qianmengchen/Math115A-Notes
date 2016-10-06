@@ -1,0 +1,101 @@
+\documentclass[11pt]{article}
+\usepackage{setspace}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+
+\DeclareMathOperator{\Span}{span}
+
+\iffalse
+\[
+\begin{bmatrix}
+\end{bmatrix}
+\]
+\fi
+
+\begin{document}
+\doublespacing
+For fun problem:\\
+suppose $f: A\rightarrow B$, $g: B\rightarrow C$\\
+$g\circ f$ is injective\\
+what can you say about $g$ and $f$\\
+similar question with $g\circ f$ surjective\\
+
+Linear Independence:\\
+Suppose $V$ a VS/F, and $v_1,\ldots,v_n \in V$\\
+These vectors are called linearly independent when the only solution to $c_1v_1+\ldots+c_nv_n=0, c_i\in F$ is the trivial solution $c_1=\ldots=c_n=0$\\
+If $S\subset V$ is a subset of $V$, we call $S$ linearly independent when if $c_1v_1+\ldots+c_nv_n=0$ for some $c_i\in F, v_i\in S$ then $c_1=\ldots=c_n=0$\\
+i.e. all finite collections of elements in $S$ are linearly independent.
+
+If $v_1,\ldots,v_n\in V$ then we define $\Span\{v_1,\ldots,v_n\}=\{c_1v_1+\ldots+c_nv_n\,|\,c_i\in F\}=\{$linear combinations of $v_1\ldots v_n\}$\\
+$\Span\{v_1\ldots v_n\}$ is the smallest subspace of $V$ that contains $v_1\ldots v_n$\\
+
+If $S\subset V$ is a subset\\
+$\Span\{S\}=\{c_1v_1+\ldots+c_nv_n\,|\,c_i\in F, v_i\in S\}=\{$finite linear combinations of elements in $S\}$
+
+\section*{Example}
+Have $V\in\mathbb{R}^2$, let's show that $\bordermatrix{~ & \cr &1\cr &0},\bordermatrix{~ & \cr &0\cr &1}$ is linearly independent and span of it is $V$\\
+\begin{proof}
+	
+	To prove $\bordermatrix{~ & \cr &1\cr &0}=v_1,\bordermatrix{~ & \cr &0\cr &1}=v_2$ is linearly independent\\
+	Assume $c_1v_1+c_2v_2=\bordermatrix{~ & \cr &0\cr &0}$ for some $c_1,c_2\in \mathbb{R}$\\
+	Need to show $c_1=c_2=0$\\
+	Yes this is true\\
+	To prove $\Span\{v_1,v_2\}=V$, we need to show that only vector in $V$ can be represented as a linear combination of $\bordermatrix{~ & \cr &1\cr &0}$ and $\bordermatrix{~ & \cr &0\cr &1}$\\
+	Pick $(x,y)\in V$, $xv_1+yv_2=(x,y)$
+\end{proof}
+
+Still have $V\in\mathbb{R}^2$\\
+$V=\Span\{\bordermatrix{~ & \cr &3\cr &1},\bordermatrix{~ & \cr &24\cr &-15}\}$ \\
+To prove this we would need to take $(x,y)\in V$, find $c_1,c_2\in R$ so that $c_1\bordermatrix{~ & \cr &3\cr &1}+c_2\bordermatrix{~ & \cr &24\cr &-15}=\bordermatrix{~ & \cr &x\cr &y}$\\
+can do this by row reduction\\
+\[
+\begin{bmatrix}
+3 & 24 & | & x\\
+1 & -15 & | & y
+\end{bmatrix}
+\]
+If we row reduce and get on solution, that means your set doesn't span all of $V$\\
+
+We could also say $V=\Span\{\bordermatrix{~ & \cr &1\cr &2},\bordermatrix{~ & \cr &3\cr &0},\bordermatrix{~ & \cr &-1\cr &15},\bordermatrix{~ & \cr &\pi\cr &-e}\}$\\
+turns out $V=\Span\{\bordermatrix{~ & \cr &1\cr &2},\bordermatrix{~ & \cr &3\cr &0}\}$, the extra vectors are "redundant"\\
+
+\section*{Linear Independence Facts}
+If $S\subset V$ contains exactly one element, then $S$ is linearly dependent iff $S=\{0_v\}$\\
+\begin{proof}
+\hfill\\
+	$\rightarrow$ direction\\
+	Say $S=\{x\}$, we know $c\cdot x=0_v$, for some $c\neq 0$ (because $S$ is independent), divided by $c$, $x=0_v$\\
+	$\leftarrow$ direction\\
+	If $S=\{0_v\}$\\
+	$1\cdot 0_v=0_v$ and $1\neq 0$\\
+	So this is a nontrivial linear combination that gives $0_v$\\
+	So $S$ is dependent
+\end{proof}
+
+\section*{Exercise} 
+Find 3 vectors in $\mathbb{R}^3$ so that any pair of vectors is independent, but the set of all 3 is linearly dependent\\
+Moral of the story:\\
+If I want to prove $S$ is linearly independent, I cannot split $S$ into parts. Need to use the definition of linear independence on the entire $S$.\\
+
+Fact:\\
+If $S_1$ and $S_2$ are two subsets of $V$, and both $S_1$ and $S_2$ are linearly independent.\\
+Then $S_1\cap S_2$ is linearly independent $\rightleftarrows$ $\Span\{S_1\}\cap\Span\{S_2\}=\{0_v\}$.
+\begin{proof}
+\hfill\\
+	Trick: If $c_1x_1+\ldots +c_nx_n\in\Span\{S_1\}$ and $d_1y_1+\ldots +d_ny_n\in\Span\{S_2\}$ and they're equal, then $c_1x_1+\ldots +c_nx_n-d_1y_1-\ldots-d_ny_n=0$\\
+	Example: Working with $V=C[0,\pi]$\\
+	prove that $\{sin,cos\}$ is linearly independent\\
+	To do that, assume $c_1sin+c_2cos=0$\\
+	This means: For every $x\in [0,\pi]$, $c_1sin(x)+c_2cos(x)=0_v(x)=0$\\
+	Pick $x=0$, $c_10+c_21=0$ so $c_2=0$\\
+	Pick $x=\frac{\pi}{2}, c_11+x_20=0$, so $c_1=0$
+\end{proof}
+
+Fact: If $S\subset V$ and $\Span\{S\}=V$\\
+If $S\subset U\subset V$ then $\Span\{U\}=V$\\
+
+Fact: If $S\subset V$ and $S$ is linearly independent\\
+If $U\subset S$ then $U$ is linearly independent\\
+If $c_1x_1+\ldots+c_n x_n=0$, $(x_1\ldots x_n\in U)$\\
+Since $x_1\ldots x_n\in S$ and $S$ is linearly independent\\
+must have $c_1=\ldots=c_n=0$
+\end{document}
