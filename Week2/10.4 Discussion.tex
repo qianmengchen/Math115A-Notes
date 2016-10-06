@@ -1,0 +1,75 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\iffalse
+\[
+\begin{bmatrix}
+\end{bmatrix}
+\]
+\fi
+
+\begin{document}
+\doublespacing
+New subspaces from old:\\
+If $V$ a vector space, $u,w$ are subspaces, $u\cap w$ is also a subspace. \\
+We even showed this for any number of subspaces:\\
+If $w_i, i\in I$ are all subspaces, the $\bigcap\limits_{i\in I}w_i$ is a subspace.\\
+Here $I$ is called an indexing set.\\
+
+One next homework, we look at $u\cup w$\\
+Hint: Try $V=\mathbb{R}^2$\\
+$u=$x-axis$=$span$((1,0))=\{(x,0)|x\in \mathbb{R}\}$
+$w=$y-axis\\
+sums of subspaces:\\
+Have $V$ a vector space, $u, w$ subspaces. \\
+Then $u+w=\{u+w|u\in U, w\in W\}=\{v\in V|$v can be written as $v=u+w, u\in U, w\in W\}$\\
+Let's prove that $u+w$ is a subspace, need to show:
+\begin{enumerate}
+	\item $0_v\in u+w$
+	\item If $v_1, v_2\in u+w$, then $v_1+v_2\in u+w$
+	\item If $c\in F$ and $v\in u+w$ then $c\cdot v\in u+w$
+\end{enumerate}
+\begin{itemize}
+	\item $0_v\in u+w$ because $0_v = {0_v}_{\, in\, u}+{0_v}_{\, in\, w}$
+	\item Say $v_1, v_2\in u+w$, want $v_1+v_2\in u+w$\\
+	That means $v_1=u_1+w_1$ for some $u_1\in u, w_1\in w$\\
+	$v_2=u_2+w_2$ for some $u_2\in u, w_2\in w$\\
+	So $v_1+v_2=(u_1+w_1)_(u_2+w_2)=(u_1+u_2)_{\, in\, u}+(w_1+w_2)_{\, in\, w}$\\
+	\item closed under scalar mult is an exercise
+\end{itemize}
+Fact: $U+W$ is the smallest subspace of $V$ that contains both $u$ and $w$. More formally: $u\in u+w$, $w\in u+w$\\
+If $X\in V$ is a subspace and $U\in X, W\in X$ then $U+W\in X$\\
+pf: we won't do the whole thing, will show $U\subset U+W$\\
+Let's show $U\subset U+W$\\
+i.e. if $x\in U$, then $x\in U+W$ ==> $x=u+w$\\
+$x=x+0$, $x$ in $U$ and 0 in $W$\\
+Note: saying $v\in U+W$ means $v=u+w$ for some $u\in U, w\in W$\\
+Fact: if $U\cap W=\{0\}$\\
+then if $v\in U+W$, there's exactly one choice of $u, w$ to make $v=u+w$\\
+pf: suppose $v+u_1+w_1$ and $v=u_2+w_2$, we'll show $u_1=u_2$, $w_1=w_2$\\
+So $u_1+w_2=u_2+w_2$\\
+$u_1-u_2=w_1-w_2$\\
+So $u_1-u_2\in U\cap W$, so $u_1-u_2=0$ so $u_1=u_2$. similarly, $w_1=w_2$\\
+In this case, your book says $U+W$ is a direct sum ("direct" means $U\cap W=\{0\}$)\\
+Take $V, W$ any two vector spaces (over the same field F), define a new vector space $V\oplus W$ called the direct sum of $V, W$\\
+vectors in $V\oplus W$ are ordered pairs $(v, w)$\\
+$(x, y)+(a, b)=(x+a, y+b)$\\
+$c\cdot (x, y)=(cx, cy)$\\
+For $U+W$, $U, W$ were both subspaces of $V$\\
+If $v\in U+W$, might be many ways to write $v+u+w$\\
+For $U\oplus W$, $u, w$ don't need to be related ($\mathbb{R}\oplus [-1, 1]$ is ok), $(x, y)=(w, z) \leftrightarrow x=w, y=z$\\
+Fact: If $U, W$ are subspaces of $V$, and $U\cap W=\{0\}$\\
+Then there's an invertible linear map. $T: U\oplus W\rightarrow U+W$ (we call these isomorphic vector spaces)\\
+We always have a linear map, $T: U\oplus W\rightarrow U+W$ defined by $T(u, w)=u+w$. (True even if $U\cap W\neq \{0\}$). This map is always surjective.\\
+Need to show:\\
+For any $y\in U+W$, $\exists x\in U\oplus W$ s.t. $T(x)=y$\\
+since $y\in U+W$, then $y=U+W$ for some $u\in U, w\in W$\\
+So $y=T(u, w)$ (the $x$ above is $(u, w)$)\\
+To show injective, we'll use that $U\cap W=\{0\}$\\
+Need: If $T(u_1, w_1)=T(u_2, w_2)$, then $(u_1, w_1)=(u_2, w_2)$\\
+If $T(u_1, w_1)=T(u_2, w_2)$, that means $u_1+w_1=u_2+w_2$\\
+we just showed this means $u_1=u_2, w_1=w_2$
+\end{document}

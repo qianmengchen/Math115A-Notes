@@ -1,0 +1,94 @@
+\documentclass[11pt]{article}
+\usepackage{setspace}
+\usepackage{amsfonts}
+\usepackage{amsmath,amsthm,amssymb}
+
+\DeclareMathOperator{\Span}{span}
+
+\iffalse
+\[
+\begin{bmatrix}
+\end{bmatrix}
+\]
+\fi
+
+\begin{document}
+\doublespacing
+\section*{Coordinate Theorem}
+let $V$ be a VS/F with basis $\mathbb{B}=\{v_1\ldots v_n\}$, and $v\in V$. \\
+Then $\exists \,! \,{\alpha}_1\ldots {\alpha}_n\in F$ s.t. $v={\alpha}_1v_1+\ldots {\alpha}_nv_n$. \\
+($\exists\,!\rightarrow$exists unique)\\
+\begin{proof}
+$\Span\{\mathbb{B}\}=V$;\\
+$\mathbb{B}$ satisfies $\Span\{\mathbb{B} \}=V$, $u, v\in $Span($\mathbb{B}$)\\
+$\alpha_1\ldots\alpha_n$ unique\\
+Suppose 
+${\alpha}_1v_1\ldots {\alpha}_nv_n=v=\beta_1v_1+\ldots+\beta_nv_n$, $\,\beta_1\ldots\beta_n\in F$\\
+So, $({\alpha}_1-\beta_i)v_1+\ldots+({\alpha}_n-\beta_n)v_n=0$\\
+Hence ${\alpha}_i=\beta_i$, $\forall i$ as $\mathbb{B}$ is linearly independent.\\
+\end{proof}
+
+Question: is theorem true if $V$ is a VS/F with basis $\mathbb{B}$?\\
+Important Exercise: let $V$ be a VS/F, $v_1,\ldots, v_n\in V$. \\
+Then $\Span\{v_1\ldots v_n\}$=$\Span\{v_2\ldots v_n\}$ iff $v_1\in \Span\{v_2\ldots v_n\}$\\
+
+\section*{Induction}
+To prove a statement by induction, let P(n) be statement for any $n\in \mathbb{Z}^+$ that is either true of false for each n\\
+To show P(n) is true $\forall n$\\
+To do that you first prove P(1) is true\\
+Now suppose P(n) is true (the induction hypothesis)\\
+Then, show P(n) $\rightarrow$ P(n+1)\\
+{[}Note: $n$ must be arbitrary{]}\\
+{[}Note: can stand at any $n$ e.g. $n=0$ {]}]\\
+Toss Out: let $V$ be a VS/F and suppose that $V$ can be spanned by a finite number of vectors, then $V$ is a fdvs/F\\
+More precisely, if $v_1\ldots v_n\in V$ s.t. $\{v_1\ldots v_n\}$ spans $V$, then a subset of $\{v_1\ldots v_n\}$ is a basis for $V$\\
+
+\begin{proof}
+	If $V=0$, done by definition\\
+So we may assume $V\neq 0$ and $V=\Span\{v_1\ldots v_n\}$\\
+We prove the theorem by induction on $n$\\
+$n=1$ as $V\neq 0, v_1\neq 0$\\
+Hence $\{v_1\}$ is a basis for $V$ since ${\alpha} v_1=0\rightarrow {\alpha}=0$\\
+hence $n=1$ is true\\
+Induction hypothesis: suppose span($w_1\ldots w_n$)=$v$ then a subset of $\{w_1\ldots w_n\}$ is a basis\\
+To show the result holds if $V=\Span\{v_1\ldots v_{n+1}\}$\\
+if $\{v_1\ldots v_{n+1}\}$ is linearly independent, then a basis by definition and done\\
+Suppose $\{v_1\ldots v_{n+1}\}$ is linearly dependent\\
+Then $\exists \alpha_1\ldots\alpha_{n+1}\in F$ not all zero\\
+s.t. $\alpha_1v_1+\ldots+\alpha_{n+1}v_{n+1}=0$\\
+Changing notation, we may assume that $\alpha_{n+1}\neq 0$ so ${\alpha_{n+1}}^{-1}$ exists
+Then $v_{n+1}=-{\alpha_{n+1}}^{-1}\alpha_1v_1-\ldots\-{\alpha_{n+1}}^{-1}\alpha_nv_n\in \Span\{v_1\ldots v_n\}$\\
+By important exercise\\
+$V=\Span\{v_1\ldots v_{n+1}\}=\Span\{v_1\ldots v_n\}$\\
+By the case $n$, $\{v_1\ldots v_n\}$. Hence $\{v_1\ldots v_{n+1}\}$ contains a basis for $V$.
+\end{proof}
+
+\section*{Example}
+\begin{enumerate}
+	\item let $e_i=(0, \ldots, 0, 1, 0, \ldots, 0)\in F^n$ \& $S_n:=\{e_1\ldots e_n\}\subset F^n$\\
+	let $V\in F^n$ then $\exists \alpha_1\ldots \alpha_n\in F$ s.t. $v=(\alpha_1\ldots \alpha_n)=\alpha_1e_1\ldots \alpha_ne_n$\\
+	So $V=\Span\{S\}$ if $0=\alpha_1e_1+\ldots+\alpha_ne_n=(\alpha_1\ldots\alpha_n)=(0,\ldots, 0)$\\
+	$\rightrightarrows \alpha_i=0\, \forall\, i$\\
+	$\therefore$ $S_n$ is a basis called Standard Basis for $F^n$\\
+	More generally, let $e_{ij}\in F^{m\times n}$ be the matrix with 0's in all entries, except the ij\textsuperscript{th} place where it is 1.\\
+	Then $S=S_{m, n}=\{e_{ij}|1\leq i \leq m, \, 1 \leq j \leq n\}$ is a basis for $F^{m\times n}$\\
+	Called standard basis for $F^{m\times n}$
+	\item let $V=F[t]$ if $f\in V$, then $\exists \alpha_0\ldots\alpha_n\in F$ s.t. $f=\alpha_0+\alpha_1t+\ldots+\alpha_nt^n$\\
+	So, $\Span\{1, t, t^2, \ldots\}=F[t]$ \& $\{1, t, t^2, \ldots\}$ is linearly independent hence a basis for $F[t]$\\
+	$\alpha_0+\alpha_1t+\ldots+\alpha_nt^n=0$, then $\alpha_i=0$ $\forall i$
+	\item $F[t]_n=\{f\in F[i]\,|\,$degree $f\leq n$ or $f=0\}\subset F[t]$\\
+	$F[t]_n=\Span\{1, t, \ldots, t^n\}$ \& $\{1, t, \ldots, t^n\}$ is linearly independent on $\{1, t, t^2, \ldots\}$
+	\item $V=\mathbb{C}$ as a VS/R then $\{1, \sqrt{-1}\}$ is a basis for $\mathbb{C}$ as a VS/R\\
+	$\alpha 1+\beta\sqrt{-1}$, $\alpha, \beta\in \mathbb{R}$ uniquely\\
+	$V=\mathbb{C}$ as a VS/$\mathbb{C}$ then $\{1\}$ is a basis of $\mathbb{C}$ as a VS/$\mathbb{C}$\\
+	More generally, $F$ is a field $F$ is a VS/F with basis $\{V\}$ if $V\neq 0$\\
+	if $\alpha\in F$ then $\alpha=\alpha v^{-1}v\ldots$ \textbf{???}\\
+	e.g. $\{\pi\}$ is a basis for $\mathbb{R}$ as a VS/R
+	\item $\{e^{-x}, e^{3x}\}$ is a basis for $V=\{f\in \mathbb{C}^2\, |\, f''-2f'-3f=0\}$
+	\item Given $v_1, \ldots, v_m \in F^n $, know how to find $\Span\{v_1, \ldots, v_m\}$ and a basis for the span
+\end{enumerate}
+
+\section{Replacement Theorem}
+Let $V$ be a VS/F \& $\{v_1\ldots v_n\}$ is a basis for $V$\\
+Suppose $v\in V$ and $v=\alpha_1v_1+\ldots+\alpha_nv_n$, $\alpha_1\ldots\alpha_n\in F$ with $\alpha_i\neq 0$, then $\{v_1, \ldots, v_{i-1}, v_i, v_{i+1}, \ldots, v_n\}$ is a basis for $V$
+\end{document}
